@@ -1,0 +1,7 @@
+[Desktop Entry]
+ Name=usbrelay
+ Exec=/usr/local/bin/usbrelay
+ Terminal=false
+ Type=Application
+ Icon=/home/justin/.usbrelay/images/usbrelay_128x128.png
+ Categories=GTK;Development;

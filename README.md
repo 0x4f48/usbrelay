@@ -31,7 +31,7 @@ Import the file under the "ardunio" directory to the Ardunio IDE and build the f
 
 ### From a terminal
 
-Open a terminal and set baudrate to 115200. The second command is for preventing the Arduino from auto resetting when serail connection is established.
+Open a terminal and set baudrate to 115200. The second command is for preventing the Arduino from auto resetting while opening a serial port.
 
 ```
 $ stty -F /dev/ttyUSB0 115200

@@ -47,21 +47,21 @@ Run "cat" to get responses.
 $ cat /dev/ttyUSB0
 ```
 
-Open another terminal and send commands.
+Open another terminal and send commands after setting the baudrate as shown above.
 
 
 #### Commands and response
 
 | Commands | Response | Meaning |
 | ------ | ------ | ------ |
-| @SW? | #SW0 or #SW1 | Relay Off or On |
+| @SW? | #SW0 or #SW1 | Relay Off(0) or On(1) |
 | @SW1 | N/A | Relay On |
 | @SW0 | N/A | Relay Off |
 | @DN? | #DN!device_name | Query device name |
 | @DN!device_name| N/A | Program device name |
-| @CC? | #CC0 or #CC1 |  Query curcuit config|
-| @CC0 | N/A | Set normall open circuit |
-| @CC1 | N/A | Set normall closed circuit |
+| @CC? | #CC0 or #CC1 | Query curcuit config (normally open or closed) |
+| @CC0 | N/A | Set normally open circuit |
+| @CC1 | N/A | Set normally closed circuit |
 
 
 ### Using GUI application

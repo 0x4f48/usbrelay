@@ -7,7 +7,7 @@ These are relay modules that I purchased in the past.
 ![Relay Modules](https://github.com/0x4f48/usbrelay/blob/main/misc/relay-module.jpg)
 
 
-A releay module and Ardunio get power and control commands from the host via USB serail.
+A releay module and Ardunio get powered and operated with the control commands from the host.
 
 
 ## Building the usbrelay module

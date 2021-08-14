@@ -173,7 +173,9 @@ void query_dev_status(USBRELAY_OBJS *win_objs)
         {
 			debug_msg("fial to get CC\n");
 			sprintf(msg_buf, "(Code: %d)", ret );
-			show_message_box("Fail to read circuit config!", msg_buf);
+			show_message_box("Fail to read circuit config!\nNew device?", msg_buf);
+			win_objs->status.circuit_conf = CC_UNKNOWN;
+			gtk_label_set_text(GTK_LABEL(win_objs->lbl_circuit_conf), "???");
 		}
     }
 
@@ -227,6 +229,7 @@ void query_dev_status(USBRELAY_OBJS *win_objs)
 		{
 			sprintf(msg_buf, "(Code: %d)", ret );
 			show_message_box("Fail read device name", msg_buf);
+			strncpy(win_objs->status.dev_name, "???", sizeof(win_objs->status.dev_name));
 		}
 	}
 }
@@ -379,10 +382,15 @@ void on_btn_settings_clicked(GtkWidget *btn_scan, gpointer user_data)
 			debug_msg("Crr CC: N-Open\n");
 			gtk_toggle_button_set_active((GtkToggleButton*)win_objs->btn_nopen, TRUE);
 		}
-		else
+		else if ( win_objs->status.circuit_conf == NORMALLY_CLOSED )
 		{
 			debug_msg("Crr CC: N-Close\n");
 			gtk_toggle_button_set_active((GtkToggleButton*)win_objs->btn_nclose, TRUE);
+		}
+		else
+		{
+			debug_msg("Crr CC: UNKNOWN\n");
+			gtk_toggle_button_set_active((GtkToggleButton*)win_objs->btn_nopen, TRUE);
 		}
 		
 		/* set device name */
@@ -401,7 +409,8 @@ void on_btn_settings_clicked(GtkWidget *btn_scan, gpointer user_data)
 				if ( user_n_open )
 				{
 					/* user selected normally open */
-					if ( win_objs->status.circuit_conf == NORMALLY_CLOSED )
+					if ( win_objs->status.circuit_conf == NORMALLY_CLOSED ||
+					     win_objs->status.circuit_conf == CC_UNKNOWN )
 					{
 						/* update to normal open */
 						serial_write( MSG_CC_N_OPEN_PRG, MSG_CC_PRG_LEN );
@@ -414,7 +423,8 @@ void on_btn_settings_clicked(GtkWidget *btn_scan, gpointer user_data)
 				else
 				{
 					/* user selected normally close */
-					if ( win_objs->status.circuit_conf == NORMALLY_OPEN )
+					if ( win_objs->status.circuit_conf == NORMALLY_OPEN ||
+					     win_objs->status.circuit_conf == CC_UNKNOWN )
 					{
 						/* update to normally close */
 						serial_write( MSG_CC_N_CLOSE_PRG, MSG_CC_PRG_LEN );

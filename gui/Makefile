@@ -30,7 +30,7 @@ gladeconvert: usb-relay-gui.glade
 #
 # objects to build
 #
-%.o: %.c
+%.o: %.c %.h
 	@echo 'Building file: $<'
 	$(CC) $(CFLAGS) -c $< 
 	

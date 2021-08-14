@@ -30,6 +30,7 @@
 
 #define NORMALLY_OPEN           0
 #define NORMALLY_CLOSED         1
+#define CC_UNKNOWN             -1
 
 #define RELAY_OFF				0
 #define RELAY_ON				1

@@ -7,12 +7,14 @@ These are relay modules that I purchased in the past.
 ![Relay Modules](https://github.com/0x4f48/usbrelay/blob/main/misc/relay-module.jpg)
 
 
-A releay module and Ardunio get powered by USB port and operated with the control commands from the host.
+A releay module and Ardunio Nnao get powered by USB port and operated with the control commands from the host.
 
 
 ## Building the usbrelay module
 
-### Soldering the wires as shown below.
+### Hookup Wires
+
+Solder the wires as shown below.
 
 ```
 Arduino digital pin3 <----> Relay control
@@ -20,7 +22,7 @@ Arduino         +5V  <----> Relay power IN
 Arduino         GND  <----> Relay power GND 
 ```
 
-### Flashing the Arduino
+### Flashing Arduino Nano
 
 Import the file under the "ardunio" directory to the Ardunio IDE and build the firmware.
 

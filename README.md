@@ -44,7 +44,7 @@ $ stty -F /dev/ttyUSB0 115200 -hupcl
 
 You are ready to send commands.
 
-If you need to receive response messages, open another terminal and run "cat" command after seeting the baudrate as shown above.
+If you need to receive response messages, open another terminal and run "cat" command after setting the baudrate as shown above.
 
 Run "cat" to get responses.
 

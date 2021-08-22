@@ -5,9 +5,10 @@ It is my version of USB relay module. This type of devices are cheaply availalbe
 These are relay modules that I purchased in the past.
 
 ![Relay Modules](https://github.com/0x4f48/usbrelay/blob/main/misc/relay-module.jpg)
+![usbrelay with case](https://github.com/0x4f48/usbrelay/blob/main/misc/usbrelay-with-case.jpg)
 
 
-A releay module and Ardunio Nnao get powered by USB port and operated with the control commands from the host.
+A releay module and Ardunio Nano get powered by a USB port and operated with the control commands from the host.
 
 
 ## Building the usbrelay module
@@ -41,13 +42,15 @@ OR
 $ stty -F /dev/ttyUSB0 115200 -hupcl
 ```
 
+You are ready to send commands.
+
+If you need to receive response messages, open another terminal and run "cat" command after seeting the baudrate as shown above.
+
 Run "cat" to get responses.
 
 ```
 $ cat /dev/ttyUSB0
 ```
-
-Open another terminal and send commands after setting the baudrate as shown above.
 
 
 #### Commands and response
